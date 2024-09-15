@@ -550,10 +550,10 @@ def load_audio(path, sr=22050, mono=True, offset=0.0, duration=None,
         if n_channels > 1:
             y = y.reshape((-1, n_channels)).T
             if mono:
-                y = librosa.core.audio.to_mono(y)
+                y = librosa.to_mono(y)
 
         if sr is not None:
-            y = librosa.core.audio.resample(y, sr_native, sr, res_type=res_type)
+            y = librosa.resample(y, sr_native, sr, res_type=res_type)
 
         else:
             sr = sr_native
