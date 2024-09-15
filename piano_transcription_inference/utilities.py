@@ -520,7 +520,7 @@ def load_audio(path, sr=22050, mono=True, offset=0.0, duration=None,
         n = 0
 
         for frame in input_file:
-            frame = librosa.core.audio.util.buf_to_float(frame, dtype=dtype)
+            frame = librosa.util.buf_to_float(frame, dtype=dtype)
             n_prev = n
             n = n + len(frame)
 
