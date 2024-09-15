@@ -553,8 +553,8 @@ def load_audio(path, sr=22050, mono=True, offset=0.0, duration=None,
                 y = librosa.to_mono(y)
 
         if sr is not None:
-            y = librosa.resample(y, sr_native, sr, res_type=res_type)
-
+            # Updated resampling call
+            y = librosa.resample(y, orig_sr=sr_native, target_sr=sr, res_type=res_type)
         else:
             sr = sr_native
 
